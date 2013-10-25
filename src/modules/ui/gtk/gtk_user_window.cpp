@@ -1337,8 +1337,11 @@ namespace ti
             g_free(f);
         }
     
-        openFilesDirectory =
+        gchar* g_openFilesDirectory =
              gtk_file_chooser_get_current_folder(GTK_FILE_CHOOSER(chooser));
+        if (g_openFilesDirectory)
+            openFilesDirectory = g_openFilesDirectory;
+
         gtk_widget_destroy(chooser);
 
         try
